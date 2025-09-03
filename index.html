@@ -138,7 +138,7 @@ header{position:sticky;top:0;background:var(--bg);z-index:10;border-bottom:1px s
 <div id="toast" class="toast"></div>
 
 <script>
-const API_URL = 'https://script.google.com/macros/s/AKfycbzKfUtG_X5DjgNgOLsHvJjWETjLyTfip1lIcepOe2xrTo5Sk9848w7yu5iZsXocvIvo/exec'; // Replace with your Web App URL
+const API_URL = 'https://script.google.com/macros/s/AKfycbx8QX6s1wU8XDpWqQgFTmVWUolut91hIgivXGqFO_2tm_Ssu6cqWQCBurk238e6O6t0/exec'; // Replace with your Web App URL
 let currentType = 'Income';
 let ddCache = { accountGroups: [], accounts: [], incomeGroupList: [], incomeCats: [], expenseGroupList: [], expenseCats: [] };
 
@@ -244,7 +244,7 @@ document.getElementById('amount').addEventListener('blur',()=>{
 // Load dropdowns (replace with your Apps Script API)
 async function loadDropdowns(){
   try{
-    const dd=await apiGet({action:'getDropdowns'});
+    const { data: dd } = await apiGet({action:'getDropdowns'});
     ddCache=dd;
   }catch(e){console.error(e); toast('Failed to load dropdowns', false);}
 }
@@ -276,5 +276,6 @@ document.getElementById('submitBtn').addEventListener('click', async()=>{
 </script>
 </body>
 </html>
+
 
 
